@@ -1,0 +1,91 @@
+[
+  {
+    "recipeTitle": "Fluffy Pancakes with Chocolate Chips",
+    "ingredients": [
+      "Flour",
+      "Eggs",
+      "Milk",
+      "Sugar",
+      "Baking powder",
+      "Chocolate chips"
+    ],
+    "instruction": "In a bowl, mix flour, sugar, and baking powder. Add eggs and milk, then fold in chocolate chips. Cook on a griddle until golden brown.",
+    "image": "Link to Pancake Image"
+  },
+  {
+    "recipeTitle": "Spicy Chickpea Curry",
+    "ingredients": [
+      "Chickpeas",
+      "Onions",
+      "Tomatoes",
+      "Garlic",
+      "Ginger",
+      "Turmeric powder",
+      "Chili powder",
+      "Cumin seeds"
+    ],
+    "instruction": "Sauté onions, garlic, and ginger until golden. Add tomatoes, spices, and chickpeas. Simmer until chickpeas are tender.",
+    "image": "Link to Chickpea Curry Image"
+  },
+  {
+    "recipeTitle": "Lemon Garlic Butter Shrimp",
+    "ingredients": ["Shrimp", "Garlic", "Butter", "Lemon juice", "Cilantro"],
+    "instruction": "Sauté shrimp in garlic and butter. Add lemon juice and cilantro. Cook until shrimp are opaque.",
+    "image": "Link to Shrimp Dish Image"
+  },
+  {
+    "recipeTitle": "Mango Banana Smoothie",
+    "ingredients": ["Mangoes", "Bananas", "Yogurt", "Milk"],
+    "instruction": "Blend mangoes, bananas, yogurt, and milk until smooth.",
+    "image": "Link to Smoothie Image"
+  },
+  {
+    "recipeTitle": "Tomato Basil Chicken Pasta",
+    "ingredients": ["Chicken", "Tomatoes", "Garlic", "Basil", "Pasta"],
+    "instruction": "Sauté chicken, garlic, and tomatoes. Add basil. Toss with cooked pasta.",
+    "image": "Link to Pasta Dish Image"
+  },
+  {
+    "recipeTitle": "Hilsa Fish Curry",
+    "ingredients": [
+      "Hilsa fish",
+      "Mustard oil",
+      "Turmeric powder",
+      "Onions",
+      "Garlic"
+    ],
+    "instruction": "Fry fish in mustard oil with turmeric powder. Cook onions and garlic, then add the fried fish.",
+    "image": "Link to Fish Curry Image"
+  },
+  {
+    "recipeTitle": "Potato and Lentil Soup",
+    "ingredients": ["Potatoes", "Lentils", "Onions", "Garlic", "Cumin seeds"],
+    "instruction": "Sauté onions, garlic, and cumin seeds. Add potatoes, lentils, and water. Simmer until potatoes are tender.",
+    "image": "Link to Soup Image"
+  },
+  {
+    "recipeTitle": "Vanilla Chai Latte",
+    "ingredients": ["Milk", "Tea leaves", "Sugar", "Vanilla extract"],
+    "instruction": "Brew tea leaves in milk. Add sugar and vanilla extract. Strain and serve.",
+    "image": "Link to Chai Latte Image"
+  },
+  {
+    "recipeTitle": "Beef and Potato Stew",
+    "ingredients": ["Beef", "Potatoes", "Onions", "Garlic", "Bay leaves"],
+    "instruction": "Brown beef, onions, and garlic. Add potatoes and bay leaves. Simmer until beef and potatoes are cooked.",
+    "image": "Link to Stew Image"
+  },
+  {
+    "recipeTitle": "Cilantro Lime Chicken Tacos",
+    "ingredients": [
+      "Chicken",
+      "Lime juice",
+      "Cilantro",
+      "Tortillas",
+      "Onions",
+      "Green chilies"
+    ],
+    "instruction": "Marinate chicken in lime juice and cilantro. Grill and serve in tortillas with onions and green chilies.",
+    "image": "Link to Taco Image"
+  }
+]
