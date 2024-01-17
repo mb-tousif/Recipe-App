@@ -1,7 +1,8 @@
 import { api } from "@/redux/api";
 
 const recipeApi = api.injectEndpoints({
-     getAllRecipes: build.query({
+  endpoints: (build) => ({
+    getAllRecipes: build.query({
       query: (arg) => {
         return {
           url: "/recipes",
@@ -21,11 +22,6 @@ const recipeApi = api.injectEndpoints({
         return {
           url: `/recipes/${id}`,
           method: "GET",
-        };
-      },
-      transformResponse: (response) => {
-        return {
-          recipe: response.data,
         };
       },
       providesTags: ["Recipes"],
@@ -59,12 +55,13 @@ const recipeApi = api.injectEndpoints({
       },
       invalidatesTags: ["Recipes"],
     }),
+  }),
 });
 
 export const {
-    useGetAllRecipesQuery,
-    useGetRecipeByIdQuery,
-    useCreateRecipeMutation,
-    useUpdateRecipeMutation,
-    useDeleteRecipeMutation,
+  useGetAllRecipesQuery,
+  useGetRecipeByIdQuery,
+  useCreateRecipeMutation,
+  useUpdateRecipeMutation,
+  useDeleteRecipeMutation,
 } = recipeApi;

@@ -1,25 +1,31 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { MdFoodBank, MdEmojiFoodBeverage } from "react-icons/md";
+import { MdFoodBank } from "react-icons/md";
+import { GiCampCookingPot } from "react-icons/gi";
 import AuthState from "./AuthState";
 
 const navBarRoutes = [
-    {
-        id: 1,
-        name: "Home",
-        link: "/",
-    },
-    {
-        id: 2,
-        name: "Recipes",
-        link: "/recipes",
-    },
-    {
-        id: 3,
-        name: "Manage Recipes",
-        link: "/manage-recipes",
-    },
+  {
+    id: 1,
+    name: "Home",
+    link: "/",
+  },
+  {
+    id: 2,
+    name: "Manage Recipes",
+    link: "/manage-recipes",
+  },
+  {
+    id: 3,
+    name: "Add Recipe",
+    link: "/add-recipe",
+  },
+  {
+    id: 4,
+    name: "About",
+    link: "/about",
+  }
 ];
 
 export default function Navbar() {
@@ -49,9 +55,9 @@ export default function Navbar() {
               onClick={() => setOpen(!open)}
             >
               {open ? (
-                <MdFoodBank className="ml-4 w-8 h-8" />
+                <MdFoodBank className="ml-4 w-8 h-8 text-[#e4951e]" />
               ) : (
-                <MdEmojiFoodBeverage className="ml-4 w-8 h-8" />
+                <GiCampCookingPot className="ml-4 w-8 h-8 text-[#e4951e]" />
               )}
             </div>
             <p className="text-lg min-w-[250px] font-medium text-end">

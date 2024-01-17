@@ -1,21 +1,15 @@
 import { api } from "@/redux/api";
 
 const ingredientApi = api.injectEndpoints({
+  endpoints: (build) => ({
     getAllIngredients: build.query({
-        query: (arg) => {
-        return {
-            url: "/ingredients",
-            method: "GET",
-            params: arg,
-        };
-        },
-        transformResponse: (response) => {
-        return {
-            ingredients: response.data,
-        };
-        },
-        providesTags: ["Ingredients"],
+      query: () => ({
+        url: `/ingredients`,
+        method: "GET",
+      }),
+      providesTags: ["Ingredients"],
     }),
+  }),
 });
 
 export const { useGetAllIngredientsQuery } = ingredientApi;

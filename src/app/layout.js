@@ -2,6 +2,7 @@ import Navbar from '@/ui/NavBar';
 import './globals.css'
 import Footer from '@/ui/Footer';
 import RootProvider from '@/libs/Provider';
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "Recipe App",
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
       <RootProvider>
         <body>
           <Navbar />
+          <Toaster position="top-right" />
           {children}
           <Footer />
         </body>
