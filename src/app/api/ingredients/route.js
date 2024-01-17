@@ -1,3 +1,5 @@
+import prisma from "@/libs/PrismaClientProvider";
+
 // get all ingredients
 export async function GET(req, res) {
     try {

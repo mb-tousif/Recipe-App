@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { MdFoodBank, MdEmojiFoodBeverage } from "react-icons/md";
+import AuthState from "./AuthState";
 
 const navBarRoutes = [
     {
@@ -28,7 +29,7 @@ export default function Navbar() {
     <section className="bg-slate-800 w-full">
       <div className="flex items-center justify-between h-16">
         <div className="flex flex-auto">
-          <div className="hidden mx-auto my-auto md:block">
+          <div className="hidden mx-auto my-auto sm:block">
             <div className="flex justify-end -mr-2 items-baseline">
               {navBarRoutes?.map((route) => (
                 <Link
@@ -39,19 +40,23 @@ export default function Navbar() {
                   {route?.name}
                 </Link>
               ))}
+              <AuthState />
             </div>
           </div>
-          <div
-            className="sm:hidden flex text-gray-50"
-            onClick={() => setOpen(!open)}
-          >
-            <div className="flex justify-items-end">
+          <div className="sm:hidden flex justify-evenly text-gray-50">
+            <div
+              className="flex justify-items-end"
+              onClick={() => setOpen(!open)}
+            >
               {open ? (
                 <MdFoodBank className="ml-4 w-8 h-8" />
               ) : (
                 <MdEmojiFoodBeverage className="ml-4 w-8 h-8" />
               )}
             </div>
+            <p className="text-lg min-w-[250px] font-medium text-end">
+              Recipe App
+            </p>
           </div>
         </div>
       </div>
@@ -65,11 +70,12 @@ export default function Navbar() {
             <Link
               key={route?.id}
               href={route?.link}
-              className="block px-3 py-2 rounded-md text-base font-medium"
+              className="block px-3 py-2 hover:bg-slate-700 rounded-md text-base font-medium"
             >
               {route?.name}
             </Link>
           ))}
+          <AuthState />
         </div>
       </div>
     </section>
