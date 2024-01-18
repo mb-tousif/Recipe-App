@@ -3,13 +3,23 @@ import { useGetAllIngredientsQuery } from "@/redux/app/ingredient/ingredientApi"
 import { useCreateRecipeMutation } from "@/redux/app/recipe/recipeApi";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
 
 export default function CreateAdminService() {
-  const [createRecipe, { isLoading:loading, isError:recipeError }] = useCreateRecipeMutation();
+  const [createRecipe] = useCreateRecipeMutation();
   const { data, isLoading, isError } = useGetAllIngredientsQuery();
   const ingredientList = data?.ingredients;
   const { register, handleSubmit, formState: { errors }, reset} = useForm();
- 
+  const { token } = useSelector((state) => state.auth);
+  const router = useRouter();
+  useEffect(() => {
+    if (!token) {
+      toast.error("You need to login to access this page.");
+      router.push("/login");
+    }
+  }, [token, router]);
   const onSubmit = async (data) => {
      try {
        const imgUrl = data.image[0];

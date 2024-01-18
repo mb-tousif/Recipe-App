@@ -10,11 +10,6 @@ const recipeApi = api.injectEndpoints({
           params: arg,
         };
       },
-      transformResponse: (response) => {
-        return {
-          recipes: response.data,
-        };
-      },
       providesTags: ["Recipes"],
     }),
     getRecipeById: build.query({

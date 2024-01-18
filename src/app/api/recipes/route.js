@@ -69,7 +69,6 @@ export async function GET(req, res) {
     try {
         const searchParams = req.nextUrl.searchParams;
         const search = searchParams.get("search");
-        console.log(search);
       let recipes;
       if (search) {
         recipes = await prisma.recipe.findMany({

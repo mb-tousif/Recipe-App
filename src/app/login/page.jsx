@@ -1,7 +1,27 @@
 "use client";
+import { useLoginUserMutation } from "@/redux/app/auth/authApiEndPoints";
+import { setToken } from "@/redux/app/auth/authSlice";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
+ const [ loginUser ] = useLoginUserMutation();
+ const { register, handleSubmit, formState: { errors }} = useForm();
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const onSubmit = async (data) => {
+    try {
+      const res = await loginUser(data).unwrap();
+      dispatch(setToken(res.accessToken));
+      toast.success(res.message);
+      router.push("/manage-recipes");
+    } catch (err) {
+      toast.error(err.data.message);
+    }
+  };
   return (
     <div className="flex items-center justify-center p-8 text-gray-50">
       <div className="bg-gray-600 p-8 rounded-lg shadow-lg max-w-sm w-full">
@@ -23,7 +43,7 @@ export default function Login() {
         <h2 className="text-2xl font-semibold text-center mb-4">
           Login to your account
         </h2>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-semibold mb-2">
               Email Address *
@@ -31,9 +51,14 @@ export default function Login() {
             <input
               type="email"
               className="w-full px-4 py-2 text-gray-800 border rounded-lg"
-              required
+              {...register("email", { required: true })}
               placeholder="breakpointart@info.com"
             />
+            {errors.email && (
+              <p className="text-rose-600 text-center text-sm">
+                Email Address is required.
+              </p>
+            )}
           </div>
           <div className="mb-6">
             <label
@@ -45,9 +70,14 @@ export default function Login() {
             <input
               type="password"
               className="w-full px-4 text-gray-800 py-2 border rounded-lg"
-              required
+              {...register("password", { required: true })}
               placeholder="••••••••"
             />
+            {errors.password && (
+              <p className="text-rose-600 text-center text-sm">
+                Password is required.
+              </p>
+            )}
           </div>
           <button
             type="submit"
@@ -57,7 +87,10 @@ export default function Login() {
           </button>
           <p className="text-gray-50 text-xs sm:text-base text-center mt-4">
             Don't have an account?
-            <Link href="/signup" className="ml-1 hover:text-blue-400">
+            <Link
+              href="/signup"
+              className="ml-1 font-medium hover:text-blue-400"
+            >
               Sign in.
             </Link>
           </p>

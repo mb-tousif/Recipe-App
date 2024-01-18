@@ -1,7 +1,24 @@
 "use client";
+import { useSignUpUserMutation } from "@/redux/app/auth/authApiEndPoints";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 export default function Signup() {
+  const [ signupUser ] = useSignUpUserMutation();
+  const { register, handleSubmit, formState: { errors }} = useForm();
+  const router = useRouter();
+  const onSubmit = async (data) => {
+    try {
+      const res = await signupUser(data).unwrap();
+      toast.success(res.message);
+      router.push("/login");
+    } catch (err) {
+      toast.error(err.data.message);
+    }
+  };
+  
   return (
     <div className="flex items-center justify-center p-8 text-gray-50">
       <div className="bg-gray-600 p-8 rounded-lg shadow-lg max-w-sm w-full">
@@ -23,19 +40,22 @@ export default function Signup() {
         <h2 className="text-2xl font-semibold text-center mb-4">
           Create an account
         </h2>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
-            <label
-              htmlFor="fullName"
-              className="block text-sm font-semibold mb-2"
-            >
+            <label htmlFor="name" className="block text-sm font-semibold mb-2">
               Full Name *
             </label>
             <input
               type="text"
               className="w-full px-4 py-2 text-gray-800 border rounded-lg"
               placeholder="James Brown"
+              {...register("name", { required: true })}
             />
+            {errors.name && (
+              <p className="text-rose-600 text-center text-sm">
+                Full Name is required.
+              </p>
+            )}
           </div>
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-semibold mb-2">
@@ -44,9 +64,14 @@ export default function Signup() {
             <input
               type="email"
               className="w-full px-4 py-2 text-gray-800 border rounded-lg"
-              required
+              {...register("email", { required: true })}
               placeholder="breakpointart@info.com"
             />
+            {errors.email && (
+              <p className="text-rose-600 text-center text-sm">
+                Email Address is required.
+              </p>
+            )}
           </div>
           <div className="mb-6">
             <label
@@ -58,9 +83,14 @@ export default function Signup() {
             <input
               type="password"
               className="w-full px-4 text-gray-800 py-2 border rounded-lg"
-              required
+              {...register("password", { required: true })}
               placeholder="••••••••"
             />
+            {errors.password && (
+              <p className="text-rose-600 text-center text-sm">
+                Password is required.
+              </p>
+            )}
           </div>
           <button
             type="submit"
