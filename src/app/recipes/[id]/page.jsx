@@ -21,7 +21,7 @@ export default function ManageRecipe({params}) {
   const ingredientsArray = recipe?.ingredient.split(", ");
   if (isLoading) return <div className="p-20 text-center font-bold text-2xl">Loading...</div>;
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="max-w-md mx-auto">
       <h5 className="text-gray-800 text-center mt-8 font-bold text-xl sm:text-2xl tracking-tight mb-2">
         Recipe Details
       </h5>
@@ -31,7 +31,7 @@ export default function ManageRecipe({params}) {
           height={500}
           className="rounded-t-lg"
           src={recipe?.image}
-          alt={recipe?.image}
+          alt={recipe?.title}
         />
         <div className="p-5">
           <h5 className="text-gray-700 font-bold text-lg sm:text-2xl tracking-tight mb-2">
