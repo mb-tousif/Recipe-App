@@ -8,11 +8,9 @@ export default function CreateAdminService() {
   const [createRecipe, { isLoading:loading, isError:recipeError }] = useCreateRecipeMutation();
   const { data, isLoading, isError } = useGetAllIngredientsQuery();
   const ingredientList = data?.ingredients;
-  // console.log(data);
   const { register, handleSubmit, formState: { errors }, reset} = useForm();
  
   const onSubmit = async (data) => {
-    console.log(data);
      try {
        const imgUrl = data.image[0];
        const formData = new FormData();

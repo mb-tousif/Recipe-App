@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         <body>
           <Navbar />
           <Toaster position="top-right" />
-          {children}
+            {children}
           <Footer />
         </body>
       </RootProvider>

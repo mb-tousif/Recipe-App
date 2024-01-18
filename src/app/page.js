@@ -4,7 +4,6 @@ import Link from "next/link";
 
 export default function Home() {
   const [search, setSearch] = useState("");
-
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
   };

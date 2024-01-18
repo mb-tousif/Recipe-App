@@ -1,10 +1,11 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Error({ error, reset }) {
-    const route  = useRouter();
+    const navigate  = useRouter();
   return (
-    <div class="bg-gray-200 w-full md:px-0  p-3 flex items-center justify-center">
+    <div class="bg-gray-200 w-full px-16 md:px-0 h-screen flex items-center justify-center">
       <div class="bg-white border border-gray-200 flex flex-col items-center justify-center px-4 md:px-8 lg:px-24 py-8 rounded-lg shadow-2xl">
         <p class="text-6xl md:text-7xl lg:text-9xl font-bold tracking-wider text-gray-300">
           500
@@ -16,7 +17,7 @@ export default function Error({ error, reset }) {
             {error.message}
         </p>
         <button class="bg-[#583E26] text-gray-50 px-4 py-2 rounded-lg mt-4" onClick={() => {
-            route.push("/");
+            navigate.push("/");
         }}>
             Go Back Home
         </button>
