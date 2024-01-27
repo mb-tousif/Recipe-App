@@ -41,9 +41,8 @@ export default function ManageRecipes() {
         Manage Recipes
       </h1>
       <div className="sm:p-8 mt-3 md:ml-14">
-        <div className="-mx-4 px-4 py-4 overflow-x-auto">
-          <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
-            <table className="min-w-full bg-[#3c4153ad] max-w-sm">
+          <div className="inline-block min-w-full sm:px-20 shadow rounded-lg overflow-hidden">
+            <table className="min-w-full rounded-xl bg-[#3c4153ad] max-w-sm">
               <thead>
                 <tr className="">
                   <th className="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-50 uppercase tracking-wider">
@@ -93,7 +92,6 @@ export default function ManageRecipes() {
               </tbody>
             </table>
           </div>
-        </div>
       </div>
     </div>
   );
